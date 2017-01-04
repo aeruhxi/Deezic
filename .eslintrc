@@ -1,0 +1,29 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "quotes": ["error", "single"],
+    "indent": [
+      "error",
+      2,
+      {"SwitchCase": 1}
+    ],
+    "semi": ["warn", "always"],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  },
+  "plugins": [
+    "react"
+  ]
+}
