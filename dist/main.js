@@ -20,11 +20,10 @@ const getMainURL = () => {
     protocol: 'file:',
     slashes: true
   });
-}
+};
 
 const createMainWin = () => {
   mainWin = new BrowserWindow({width: 800, height: 600});
-  console.log(getMainURL())
   mainWin.loadURL(getMainURL());
 
   // Open the DevTools.
@@ -34,7 +33,7 @@ const createMainWin = () => {
   mainWin.on('closed', () => {
     mainWin = null;
   });
-}
+};
 
 // When electron intializes and is ready to open window
 app.on('ready', () => {
@@ -48,7 +47,7 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
-})
+});
 
 app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
