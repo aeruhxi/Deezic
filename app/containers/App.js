@@ -6,7 +6,7 @@ class App extends Component {
       <h1>
         Hellosssssssssss
       </h1>
-    )
+    );
   }
 }
 
