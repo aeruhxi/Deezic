@@ -2,10 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  context: __dirname + '/app',
+  context: path.resolve(__dirname, 'app', 'renderer'),
   entry: ['./index.js'],
   output: {
-    path: __dirname + '/dist/renderer',
+    path: path.resolve(__dirname, 'dist', 'renderer'),
     filename: 'bundle.js'
   },
   plugins: [
@@ -20,7 +20,11 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       loaders: ['babel'],
-      include: path.resolve(__dirname, 'app')
+      include: path.resolve(__dirname, 'app', 'renderer')
+    }, {
+      test: /\.css$/,
+      loader: 'style!css',
+      include: path.resolve(__dirname, 'app', 'renderer', 'styles')
     }]
   }
 };

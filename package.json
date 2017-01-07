@@ -2,7 +2,7 @@
   "name": "deezic",
   "version": "0.1.0",
   "description": "Desktop Music Player for Deezer",
-  "main": "./dist/main.js",
+  "main": "./app/main/index.js",
   "scripts": {
     "start-hot": "webpack-dev-server --config webpack.development.config.js --progress",
     "build": "webpack --config webpack.production.config.js -p",
@@ -27,6 +27,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "electron": "^1.4.13",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   }

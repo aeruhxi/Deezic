@@ -16,7 +16,7 @@ const getMainURL = () => {
 
   // For production
   return url.format({
-    pathname: path.join(__dirname, './index.html'),
+    pathname: path.resolve(__dirname, '..', '..', 'dist', 'index.html'),
     protocol: 'file:',
     slashes: true
   });
