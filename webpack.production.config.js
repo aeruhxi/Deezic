@@ -24,7 +24,11 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: 'style!css',
-      include: path.resolve(__dirname, 'app', 'renderer', 'styles')
+      include: path.resolve(__dirname, 'app', 'assets', 'styles')
+    }, {
+      test: /\.woff2$/,
+      loader: 'url?limit=65536&mimetype=application/font-woff2&name=material-design-icons/iconfont/[name].[ext]',
+      include: path.resolve(__dirname, 'app', 'assets', 'fonts')
     }]
   }
 };
