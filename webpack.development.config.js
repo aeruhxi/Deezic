@@ -27,7 +27,11 @@ module.exports = {
       include: path.resolve(__dirname, 'app', 'assets', 'styles')
     }, {
       test: /\.woff2$/,
-      loader: 'url?limit=65536&mimetype=application/font-woff2&name=material-design-icons/iconfont/[name].[ext]',
+      loader: 'url?limit=65536&mimetype=application/font-woff2&name=fonts/[name].[ext]',
+      include: path.resolve(__dirname, 'app', 'assets', 'fonts')
+    }, {
+      test: /\.ttf$/,
+      loader: 'url?limit=65536&mimetype=application/octet-stream&name=fonts/[name].[ext]',
       include: path.resolve(__dirname, 'app', 'assets', 'fonts')
     }]
   },
