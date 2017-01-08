@@ -1,3 +1,21 @@
+/* Reset */
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  outline: none;
+}
+html, body, #root {
+  font-family: Roboto;
+  padding: 0;
+  margin: 0;
+  cursor: default;
+  width: 100%;
+  overflow: hidden;
+  height: 800px; /* temp */
+}
+
+/* Material Icons */
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -6,7 +24,6 @@
        local('MaterialIcons-Regular'),
        url('../fonts/MaterialIcons-Regular.woff2') format('woff2');
 }
-
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -21,6 +38,113 @@
   direction: ltr;
 }
 
-h1 {
-  color: red;
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* APP */
+.app {
+  width: 100%;
+  height: 100%;
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+  padding: 5px 15px;
+  flex: 0 0 230px;
+  height: 100%;
+  background-color: rgb(45, 47, 80);
+}
+.sidebar__title {
+  text-align: left;
+  color: rgba(147, 148, 167, 1);
+}
+
+/* PRIMARY ROOT*/
+.primary-root {
+  padding: 20px 40px;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 2 1 auto;
+  width: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: rgb(38, 40, 68);
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  flex-flow: row;
+  justify-content: left;
+  width: 100%;
+  position: relative;
+}
+.header__title {
+  line-height: 45px;
+  font-size: 27px;
+  font-family: sans-serif;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+/* SEARCHBAR */
+.searchbar {
+  margin-left: 70px;
+  width: 500px;
+  height: 45px;
+  position: relative;
+}
+.searchbar::before {
+  font-family: 'Material Icons';
+  top:10%;
+  z-index: 2;
+  position: absolute;
+  font-size: 26px;
+  left: 10px;
+  top: 10px;
+  width: 10px;
+  color: rgb(91, 94, 126);
+  content: 'search';
+}
+.searchbar input {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(45, 47, 80);
+  padding: 10px 20px;
+  padding-left: 55px;
+  font-size: 17px;
+  line-height: 45px;
+  border-radius: 3px;
+  border: 0px;
+  color: white;
+  position: relative;
+}
+.searchbar input::-webkit-input-placeholder {
+  color: rgb(91, 94, 126);
+}
+
+/* TABS */
+.custom_tabs {
+  position: relative;
+  top: 20px;
+}
+.custom_tab-bar {
+  border-bottom: none;
+  justify-content: flex-start;
+}
+.custom-tab, .custom-tab.is-active {
+  color: rgba(255, 255, 255, 0.64) !important;
+}
+.custom-tab.is-active::after {
+  background: rgba(255, 255, 255, 0.64) !important;
+}
+.custom-tabs__panel {
+  padding: 20px 15px;
 }
