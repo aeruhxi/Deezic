@@ -130,21 +130,26 @@ html, body, #root {
   color: rgb(91, 94, 126);
 }
 
-/* TABS */
-.custom_tabs {
+/* TABS
+  We are using custom-tabs to override default mdl styles on tabs 
+  We are only adding class to root element for tabs and access children
+  with respect to it
+*/
+.custom-tabs {
   position: relative;
   top: 20px;
 }
-.custom_tab-bar {
+.custom-tabs .mdl-tabs__tab-bar { /* tab-bar */
   border-bottom: none;
   justify-content: flex-start;
 }
-.custom-tab, .custom-tab.is-active {
+.custom-tabs .mdl-tabs__tab,
+.custom-tabs .mdl-tabs__tab.is-active { /* tab */
   color: rgba(255, 255, 255, 0.64) !important;
 }
-.custom-tab.is-active::after {
+.custom-tabs .mdl-tabs__tab.is-active::after {  /* tab::after */
   background: rgba(255, 255, 255, 0.64) !important;
 }
-.custom-tabs__panel {
+.custom-tabs__panel { /* tabs_panel */
   padding: 20px 15px;
 }
