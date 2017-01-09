@@ -63,7 +63,8 @@ html, body, #root {
 }
 .sidebar__title {
   text-align: left;
-  color: rgba(147, 148, 167, 1);
+  color: rgba(255, 255, 255, 0.75);
+  padding-left: 20px;
 }
 
 /* PRIMARY ROOT*/
@@ -90,7 +91,7 @@ html, body, #root {
   line-height: 45px;
   font-size: 27px;
   font-family: sans-serif;
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 /* SEARCHBAR */
@@ -131,7 +132,7 @@ html, body, #root {
 }
 
 /* TABS
-  We are using custom-tabs to override default mdl styles on tabs 
+  We are using custom-tabs to override default mdl styles on tabs
   We are only adding class to root element for tabs and access children
   with respect to it
 */
@@ -145,11 +146,17 @@ html, body, #root {
 }
 .custom-tabs .mdl-tabs__tab,
 .custom-tabs .mdl-tabs__tab.is-active { /* tab */
-  color: rgba(255, 255, 255, 0.64) !important;
+  color: rgba(255, 255, 255, 0.75) !important;
 }
 .custom-tabs .mdl-tabs__tab.is-active::after {  /* tab::after */
   background: rgba(255, 255, 255, 0.64) !important;
 }
 .custom-tabs__panel { /* tabs_panel */
   padding: 20px 15px;
+}
+
+/* LIST */
+.sidebar__nav-list .mdl-list__item span,
+.sidebar__nav-list .mdl-list__item i {
+  color: rgba(255, 255, 255, 0.75);
 }
