@@ -103,14 +103,13 @@ html, body, #root {
 }
 .searchbar::before {
   font-family: 'Material Icons';
-  top:10%;
   z-index: 2;
   position: absolute;
   font-size: 26px;
   left: 10px;
-  top: 10px;
+  line-height: 45px;
   width: 10px;
-  color: rgb(91, 94, 126);
+  color: rgb(131, 133, 162);
   content: 'search';
 }
 .searchbar input {
@@ -128,7 +127,7 @@ html, body, #root {
   position: relative;
 }
 .searchbar input::-webkit-input-placeholder {
-  color: rgb(91, 94, 126);
+  color: rgb(131, 133, 162);
 }
 
 /* TABS
