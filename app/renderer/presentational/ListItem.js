@@ -16,7 +16,7 @@ const ListItem = ({ children, primaryIcon, secondaryIcon }) => {
         <i className="material-icons mdl-list__item-icon">{ primaryIcon }</i>
         <span>{ children }</span>
       </span>
-      { secondaryIcon ? secondarySpan : ''}
+      { secondaryIcon && secondarySpan }
     </li>
   );
 };
