@@ -131,9 +131,9 @@ html, body, #root {
 }
 
 /* TABS
-  We are using custom-tabs to override default mdl styles on tabs
-  We are only adding class to root element for tabs and access children
-  with respect to it
+  We are using the name custom-tabs to override default mdl styles on tabs
+  We are adding class to only root element for tabs and access children
+  with through it
 */
 .custom-tabs {
   position: relative;
@@ -154,7 +154,9 @@ html, body, #root {
   padding: 20px 15px;
 }
 
-/* LIST */
+/* LIST
+  Same as tabs we are applying the class to only root element
+*/
 .sidebar__nav-list .mdl-list__item span,
 .sidebar__nav-list .mdl-list__item i {
   color: rgba(255, 255, 255, 0.75);
