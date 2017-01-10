@@ -10,7 +10,7 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'renderer',
+    publicPath: 'public',
     filename: 'bundle.js'
   },
   plugins: [
@@ -33,6 +33,10 @@ module.exports = {
       test: /\.ttf$/,
       loader: 'url?limit=65536&mimetype=application/octet-stream&name=fonts/[name].[ext]',
       include: path.resolve(__dirname, 'app', 'assets', 'fonts')
+    }, {
+      test: /\.(png|jpg|gif)$/,
+      loader: 'url?limit=65536?name=images/[name].[ext]',
+      include: path.resolve(__dirname, 'app', 'assets', 'images')
     }]
   },
   devServer: {

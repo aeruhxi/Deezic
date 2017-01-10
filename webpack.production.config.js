@@ -5,7 +5,8 @@ module.exports = {
   context: path.resolve(__dirname, 'app', 'renderer'),
   entry: ['./index.js'],
   output: {
-    path: path.resolve(__dirname, 'dist', 'renderer'),
+    path: path.resolve(__dirname, 'dist', 'public'),
+    publicPath: 'public',
     filename: 'bundle.js'
   },
   plugins: [
@@ -27,12 +28,16 @@ module.exports = {
       include: path.resolve(__dirname, 'app', 'assets', 'styles')
     }, {
       test: /\.woff2$/,
-      loader: 'url?limit=65536&mimetype=application/font-woff2&name=material-design-icons/iconfont/[name].[ext]',
+      loader: 'url?limit=65536&mimetype=application/font-woff2&name=/fonts/[name].[ext]',
       include: path.resolve(__dirname, 'app', 'assets', 'fonts')
     }, {
       test: /\.ttf$/,
-      loader: 'url?limit=65536&mimetype=application/octet-stream&name=fonts/[name].[ext]',
+      loader: 'url?limit=65536&mimetype=application/octet-stream&name=/fonts/[name].[ext]',
       include: path.resolve(__dirname, 'app', 'assets', 'fonts')
+    }, {
+      test: /\.(png|jpg|gif)$/,
+      loader: 'url?limit=65536?name=images/[name].[ext]',
+      include: path.resolve(__dirname, 'app', 'assets', 'images')
     }]
   }
 };
