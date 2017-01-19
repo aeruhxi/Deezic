@@ -39,5 +39,6 @@ module.exports = {
       loader: 'url?limit=65536?name=images/[name].[ext]',
       include: path.resolve(__dirname, 'app', 'assets', 'images')
     }]
-  }
+  },
+  target: 'electron-renderer'
 };

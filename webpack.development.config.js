@@ -43,5 +43,6 @@ module.exports = {
     hot: true,
     port: 9555,
     contentBase: 'dist'
-  }
+  },
+  target: 'electron-renderer'
 };
