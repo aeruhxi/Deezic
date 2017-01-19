@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const url = require('url');
+const installDevtools = require('./installDevtools');
 
 let mainWin = null;
 
@@ -37,6 +38,9 @@ const createMainWin = () => {
 
 // When electron intializes and is ready to open window
 app.on('ready', () => {
+  // Install dev tools
+  installDevtools();
+
   createMainWin();
 });
 
