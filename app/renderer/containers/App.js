@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import SideBar from './../presentational/SideBar';
-import PrimaryRoot from './../presentational/PrimaryRoot';
+import MainSection from './../presentational/MainSection';
+import PlayerContainer from './PlayerContainer';
 
 class App extends Component {
   render() {
     return (
       <div className="app">
-        <SideBar />
-        <PrimaryRoot />
+        <MainSection />
+        <PlayerContainer />
       </div>
     );
   }
