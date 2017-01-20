@@ -1,6 +1,6 @@
 import React from 'react';
-import List from './List';
-import ListItem from './ListItem';
+import List from './../generic/List';
+import ListItem from './../generic/ListItem';
 
 const SideBar = () => {
   return (

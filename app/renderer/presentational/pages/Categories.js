@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Tab from './../presentational/Tab';
-import Tabs from './../presentational/Tabs';
+import Tab from './../generic/Tab';
+import Tabs from './../generic/Tabs';
 
 class Categories extends Component {
   render() {

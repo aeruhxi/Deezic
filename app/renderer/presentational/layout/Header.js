@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBar from './SearchBar';
+import SearchBar from './../search/SearchBar';
 
 const Header = ({ title }) => {
   return (

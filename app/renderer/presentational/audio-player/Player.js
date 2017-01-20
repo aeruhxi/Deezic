@@ -1,5 +1,5 @@
 import React from 'react';
-import defaultAlbumImage from '../../assets/images/album-art-default.png';
+import defaultAlbumImage from '../../../assets/images/album-art-default.png';
 import Audio from './Audio';
 
 const Player = ({

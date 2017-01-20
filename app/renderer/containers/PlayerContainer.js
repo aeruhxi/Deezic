@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Player from '../presentational/Player';
+import Player from '../presentational/audio-player/Player';
 
 // TODO: Separate actions into different files
 const togglePlay = {
