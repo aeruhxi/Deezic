@@ -37,11 +37,14 @@ const Player = ({
         <div className="player__info-block">
           <img className="player__album-art" src={ currentSong.albumArt || defaultAlbumImage } />
           <div className="player__info">
-            <p>{ currentSong.title} </p>
-            <p>{ currentSong.artist }</p>
+            <p>{ currentSong.title || 'Unknown Title'} </p>
+            <p>{ currentSong.artist || 'Unknown Artist'}</p>
           </div>
         </div>
         <div className="player__control-primary">
+          <p className="player__timer">
+            {humanizeSeconds(currentSeconds)} / {humanizeSeconds(totalSeconds)}
+          </p>
           <i onClick={ onPrevClick } className="material-icons">skip_previous</i>
           <i onClick={ onPlayClick } className="material-icons">
             { isPlaying ? 'pause_circle_filled' : 'play_circle_filled' }
@@ -56,6 +59,26 @@ const Player = ({
         </div>
     </section>
   );
+};
+
+const humanizeSeconds = (second) => {
+  let time = Math.trunc(second);
+  let sec = time % 60;
+  time = Math.trunc(time / 60);
+  let min = time % 60;
+  time = Math.trunc(time / 60);
+  let hour = time % 24;
+
+  let humanizedTime = '';
+  if (hour) humanizedTime += (oneDigitNumber(hour) ? `0${hour}` : hour) + ':';
+  humanizedTime += (oneDigitNumber(min) ? `0${min}` : min) + ':';
+  humanizedTime += (oneDigitNumber(sec) ? `0${sec}` : sec);
+
+  return humanizedTime;
+};
+
+const oneDigitNumber = (num) => {
+  return num >= 0 && num <=9;
 };
 
 export default Player;

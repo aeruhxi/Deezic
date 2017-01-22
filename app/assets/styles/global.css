@@ -186,7 +186,7 @@ html, body, #root {
   display: flex;
   align-items: center;
   /*background: red;*/
-  flex: 0 0 400px;
+  flex: 0 0 350px;
   justify-content: flex-start;
 }
 .player__album-art {
@@ -198,7 +198,7 @@ html, body, #root {
   height: 100%;
   flex-flow: column;
   justify-content: center;
-  flex: 1 0 100px;
+  flex: 1 0 200px;
 }
 .player__info p { /* song info */
   margin: 0;
@@ -212,18 +212,27 @@ html, body, #root {
 .player__info p:nth-child(2) { /* song artist */
   color: rgba(255, 255, 255, 0.7);
 }
+.player__timer {
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-basis: 90px;
+  font-size: 12px;
+  margin-bottom: 0;
+}
 .player__control-primary {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex: 0 0 140px;
+  flex: 0 0 250px;
 }
 .player__control-primary i { /* control icons */
   cursor: pointer;
   color: white;
   font-size: 25px;
 }
-.player__control-primary i:nth-child(2) { /* Play Control */
+.player__control-primary i:nth-of-type(2) { /* Play Control */
   font-size: 55px;
   color: #00BCD4;
   /*background-color: white;*/
@@ -233,7 +242,7 @@ html, body, #root {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  flex: 0 0 200px;
+  flex: 0 0 250px;
 }
 .player__control-secondary i {
   position: relative;
