@@ -9,7 +9,7 @@ class Slider extends Component {
   componentDidUpdate() {
     const materialSlider = this.slider.MaterialSlider;
     if (materialSlider){
-      materialSlider.change(this.currentSeconds);
+      materialSlider.change(this.props.value);
     }
   }
 
@@ -26,10 +26,14 @@ class Slider extends Component {
     return (
       <input
         ref={(el) => { this.slider = el; }}
-        className="mdl-slider mdl-js-slider" type="range"
-        min="0" max={ this.props.totalSeconds } value={ this.props.currentSeconds } tabIndex="0"
+        className="mdl-slider mdl-js-slider"
+        type="range"
+        min="0" max={ this.props.max }
+        value={ this.props.value }
+        tabIndex="0"
         onChange={ this.props.onSlide }
-        onTimeUpdate={ this.props.onTimeUpdate } />
+        onMouseLeave={this.props.onMouseLeave}
+      />
     );
   }
 
