@@ -7,10 +7,10 @@ class Slider extends Component {
   }
 
   componentDidUpdate() {
-    // Settimeout because this.slider is undefined at first
-    setTimeout(() => {
-      this.slider.MaterialSlider.change(this.currentSeconds);
-    }, 500);
+    const materialSlider = this.slider.MaterialSlider;
+    if (materialSlider){
+      materialSlider.change(this.currentSeconds);
+    }
   }
 
   render() {
