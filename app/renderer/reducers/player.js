@@ -1,6 +1,7 @@
 import {
   TOGGLE_PLAY,
-  SEEK, SET_DURATION,
+  SEEK,
+  SET_DURATION,
   SET_CURRENT_SONG,
   CHANGE_VOLUME,
   CHANGE_CURRENT_SECONDS } from './../actions/player';
