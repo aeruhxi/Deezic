@@ -172,7 +172,9 @@ html, body, #root {
 }
 
 /* PLAYER */
-.player > div{
+.player {
+  position: relative;
+  z-index: 2;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   display: flex;
   opacity: 0.9;
@@ -211,13 +213,13 @@ html, body, #root {
   color: rgba(255, 255, 255, 0.7);
 }
 .player__control-primary {
-  /*background: blue;*/
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex: 0 0 140px;
 }
 .player__control-primary i { /* control icons */
+  cursor: pointer;
   color: white;
   font-size: 25px;
 }
@@ -234,22 +236,43 @@ html, body, #root {
   flex: 0 0 200px;
 }
 .player__control-secondary i {
+  position: relative;
+  z-index: 4;
+  cursor: pointer;
   margin-right: 10px;
   color: #ffffff;
 }
 
-.player__slider {
+/* Player Volume Slider */
+.player__volume-slider {
+  display: none;
+  position: absolute;
+  width: 120px;
+  right: -5px;
+  bottom: 90px;
+  z-index: 2;
+  transform: rotate(-90deg);
+  box-shadow: none !important;
+}
+.player__volume-slider .mdl-slider__background-lower {
+  background-color: #ffffff;
+}
+.player__volume-slider input::-webkit-slider-thumb {
+  background-color: white !important;
+}
+
+.player__seeker {
   position: absolute;
   width: calc(100% + 50px);
   left: -25px;
   bottom: 82.5px;
-  z-index: 20;
+  z-index: 1;
   background: transparent !important;
   box-shadow: none !important;
 }
-.player__slider input::-webkit-slider-thumb {
-  background: red; /* Not working atm. Will look into it later*/
+.player__seeker input::-webkit-slider-thumb {
+  background-color: #00BCD4 !important;
 }
-.player__slider .mdl-slider__background-lower {
+.player__seeker .mdl-slider__background-lower {
   background-color: #00BCD4;
 }
