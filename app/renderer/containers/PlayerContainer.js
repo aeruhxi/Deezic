@@ -1,27 +1,16 @@
 import { connect } from 'react-redux';
 import Player from '../presentational/audio-player/Player';
+import { togglePlay, changeCurrentSeconds, seekToSeconds, setDuration } from './../actions/player';
 
-// TODO: Separate actions into different files
-const togglePlay = {
-  type: 'TOGGLE_PLAY'
-};
-
-const changeCurrentSeconds = (seconds) => ({
-  type: 'CHANGE_CURRENT_SECONDS',
-  currentSeconds: seconds
-});
-
-const mapStateToProps = ({ playFromSeconds, isPlaying, currentSeconds, volume, currentSong}) => ({
-  playFromSeconds,
-  isPlaying,
-  currentSeconds,
-  volume,
-  currentSong
+export const mapStateToProps = (state) => ({
+  ...state
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onPlayClick: () => dispatch(togglePlay),
-  onTimeUpdate: (e) => dispatch(changeCurrentSeconds(e.target.currentTime))
+  onTimeUpdate: (e) => dispatch(changeCurrentSeconds(e.target.currentTime)),
+  onSlide: (e) => dispatch(seekToSeconds(e.target.value)),
+  onDurationSet: (dur) => dispatch(setDuration(dur))
 });
 
 const PlayerContainer = connect(

@@ -1,3 +1,10 @@
+import {
+  TOGGLE_PLAY,
+  SEEK, SET_DURATION,
+  SET_CURRENT_SONG,
+  CHANGE_VOLUME,
+  CHANGE_CURRENT_SECONDS } from './../actions/player';
+
 const initialState = {
   isPlaying: false,
   playFromSeconds: 0,
@@ -15,19 +22,19 @@ const initialState = {
 
 const player = (state=initialState, action) => {
   switch (action.type) {
-    case 'TOGGLE_PLAY':
+    case TOGGLE_PLAY:
       return {
         ...state,
         isPlaying: !state.isPlaying
       };
 
-    case 'SEEK':
+    case SEEK:
       return {
         ...state,
         playFromSeconds: action.playFromSeconds
       };
 
-    case 'CHANGE_SONG':
+    case SET_CURRENT_SONG:
       return {
         ...state,
         currentSong: {
@@ -39,13 +46,19 @@ const player = (state=initialState, action) => {
         }
       };
 
-    case 'CHANGE_VOLUME':
+    case SET_DURATION:
+      return {
+        ...state,
+        totalSeconds: action.totalSeconds
+      };
+
+    case CHANGE_VOLUME:
       return {
         ...state,
         volume: action.volume
       };
 
-    case 'CHANGE_CURRENT_SECONDS':
+    case CHANGE_CURRENT_SECONDS:
       return {
         ...state,
         currentSeconds: action.currentSeconds
