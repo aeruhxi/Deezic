@@ -228,9 +228,17 @@ html, body, #root {
 }
 .player__control-secondary {
   /*background: pink;*/
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   flex: 0 0 200px;
 }
-.mdl-slider__container {
+.player__control-secondary i {
+  margin-right: 10px;
+  color: #ffffff;
+}
+
+.player__slider {
   position: absolute;
   width: calc(100% + 50px);
   left: -25px;
@@ -239,9 +247,9 @@ html, body, #root {
   background: transparent !important;
   box-shadow: none !important;
 }
-.player__slider::-webkit-slider-thumb {
-  background: red;
+.player__slider input::-webkit-slider-thumb {
+  background: red; /* Not working atm. Will look into it later*/
 }
-.mdl-slider__background-lower {
+.player__slider .mdl-slider__background-lower {
   background-color: #00BCD4;
 }

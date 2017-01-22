@@ -20,7 +20,7 @@ const Player = ({
   return (
     <section className="player">
       <Slider
-        className="player__slider"
+        containerClassName="player__slider"
         currentSeconds={currentSeconds}
         totalSeconds={totalSeconds}
         onSlide={onSlide}

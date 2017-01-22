@@ -13,11 +13,20 @@ class Slider extends Component {
     }
   }
 
+  componentDidMount() {
+    // Buy time for mdl library to insert its dom to slider
+    setTimeout(() => {
+      // Injecting classname to slider container
+      // because there is no way to select parent through css
+      this.slider.parentNode.classList.add(this.props.containerClassName);
+    },400);
+  }
+
   render() {
     return (
       <input
         ref={(el) => { this.slider = el; }}
-        className={`mdl-slider mdl-js-slider ${this.props.className}`} type="range"
+        className="mdl-slider mdl-js-slider" type="range"
         min="0" max={ this.props.totalSeconds } value={ this.props.currentSeconds } tabIndex="0"
         onChange={ this.props.onSlide }
         onTimeUpdate={ this.props.onTimeUpdate } />
