@@ -6,6 +6,12 @@ class Audio extends Component {
     this.audioEl = null;
   }
 
+  componentDidMount() {
+    this.audioEl.addEventListener('loadedmetadata', () => {
+      this.props.onDurationSet(this.audioEl.duration);
+    });
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.isPlaying !== this.props.isPlaying) {
       this.togglePlay(nextProps.isPlaying);

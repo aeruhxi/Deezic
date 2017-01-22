@@ -172,7 +172,7 @@ html, body, #root {
 }
 
 /* PLAYER */
-.player {
+.player > div{
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   display: flex;
   opacity: 0.9;
@@ -226,8 +226,22 @@ html, body, #root {
   color: #00BCD4;
   /*background-color: white;*/
 }
-
 .player__control-secondary {
   /*background: pink;*/
   flex: 0 0 200px;
+}
+.mdl-slider__container {
+  position: absolute;
+  width: calc(100% + 50px);
+  left: -25px;
+  bottom: 82.5px;
+  z-index: 20;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.player__slider::-webkit-slider-thumb {
+  background: red;
+}
+.mdl-slider__background-lower {
+  background-color: #00BCD4;
 }
