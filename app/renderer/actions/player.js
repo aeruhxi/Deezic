@@ -34,3 +34,8 @@ export const setDuration = (duration) => ({
   type: SET_DURATION,
   totalSeconds: duration
 });
+
+export const changeVolume = (volume) => ({
+  type: CHANGE_VOLUME,
+  volume
+});
