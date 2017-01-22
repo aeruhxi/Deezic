@@ -3,6 +3,7 @@ export const CHANGE_CURRENT_SECONDS = 'CHANGE_CURRENT_SECONDS';
 export const SEEK = 'SEEK';
 export const SET_CURRENT_SONG = 'SET_CURRENT_SONG';
 export const SET_DURATION = 'SET_DURATION';
+export const CHANGE_VOLUME = 'CHANGE_VOLUME';
 
 export const togglePlay = {
   type: TOGGLE_PLAY
