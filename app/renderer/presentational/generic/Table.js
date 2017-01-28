@@ -15,7 +15,7 @@ const Table = ({ headers, rows, className, indexed, indexColumnName }) => {
       </thead>
       <tbody>
         {rows.map((row, index) => (
-          <tr key={row.id}>
+          <tr key={row.id || index}>
             {indexed && <td key='id' className={NON_NUMERIC_CLASS}>{index + 1}</td>}
             {Object.keys(row).map((columnName, id) => {
               if (columnName == 'id') return;
