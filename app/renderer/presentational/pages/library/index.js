@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Tab from './../generic/Tab';
-import Tabs from './../generic/Tabs';
-import Table from './../generic/Table';
+import Tab from './../../generic/Tab';
+import Tabs from './../../generic/Tabs';
+import TracksContainer from './../../../containers/library/TracksContainer';
 
-const { dialog } = require('electron').remote;
+// const { dialog } = require('electron').remote;
 
 class Library extends Component {
 
@@ -23,19 +23,7 @@ class Library extends Component {
         ]}
       >
         <Tab tabID={'page1'} active={true}>
-          <Table
-            indexed
-            indexColumnName='SN'
-            className='track-table'
-            headers={[
-              {name: 'Song'},
-              {name: 'Artist'},
-              {name: 'Album'},
-              {name: 'Time'},
-            ]}
-            rows={[
-              {id: 101, song: 'Hello', artist: 'Adele', album: 'idk', time: '2:32'},
-            ]}/>
+          <TracksContainer />
         </Tab>
 
         <Tab tabID={'page2'}>

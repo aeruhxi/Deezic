@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import Library from './../pages/Library';
+import Library from './../pages/library';
 
 const PrimaryRoot = () => {
   return (
