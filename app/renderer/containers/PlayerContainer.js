@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import Player from '../presentational/audio-player/Player';
 import { togglePlay, changeCurrentSeconds, seekToSeconds, setDuration, changeVolume } from './../actions/player';
 
-export const mapStateToProps = (state) => ({
-  ...state
+const mapStateToProps = ({ player }) => ({
+  ...player
 });
 
 const mapDispatchToProps = (dispatch) => ({
