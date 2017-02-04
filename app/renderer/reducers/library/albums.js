@@ -1,15 +1,13 @@
-
-import { propInState } from './../../utils/reducers';
+import { ADD_LIBRARY_TRACK } from './../../actions/library';
 
 const albums = (state=[], action) => {
   switch (action.type) {
-    case 'ADD_LIBRARY_TRACKS': {
-      const filteredAlbums = action.tracks
-        .map(track => track.album)
-        .filter(album => !propInState(state, 'album', album));
+    case ADD_LIBRARY_TRACK: {
+      const album = action.track.album;
+      if (state.includes(album)) return state;
       return [
         ...state,
-        ...filteredAlbums
+        album
       ];
     }
     default:
