@@ -16,7 +16,7 @@ const initialState = {
     artist: '',
     album: '',
     albumArt: '',
-    src: '/public/test.mp3'
+    src: ''
   },
   volume: 1
 };
