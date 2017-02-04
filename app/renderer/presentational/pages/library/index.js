@@ -3,15 +3,7 @@ import Tab from './../../generic/Tab';
 import Tabs from './../../generic/Tabs';
 import TracksContainer from './../../../containers/library/TracksContainer';
 
-// const { dialog } = require('electron').remote;
-
 class Library extends Component {
-
-  componentDidMount() {
-    // dialog.showOpenDialog({properties: ['openFile', 'multiSelections']}, (files) => {
-    //   console.log(files);
-    // });
-  }
 
   render() {
     return (
