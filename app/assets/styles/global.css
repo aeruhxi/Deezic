@@ -90,14 +90,21 @@ html, body, #root {
   display: flex;
   flex-flow: row;
   justify-content: left;
+  align-items: center;
   width: 100%;
   position: relative;
+  flex-shrink: 0;
 }
 .header__title {
   line-height: 45px;
   font-size: 27px;
   font-family: sans-serif;
   color: rgba(255, 255, 255, 1);
+}
+.settings-icon {
+  margin-left: auto;
+  color: white;
+  cursor: pointer;
 }
 
 /* SEARCHBAR */
@@ -145,10 +152,13 @@ html, body, #root {
 .custom-tabs {
   position: relative;
   top: 20px;
+  display: flex;
+  flex-flow: column;
 }
 .custom-tabs .mdl-tabs__tab-bar { /* tab-bar */
   border-bottom: none;
   justify-content: flex-start;
+  flex: 1 0 48px;
 }
 .custom-tabs .mdl-tabs__tab { /* tab */
   color: rgba(255, 255, 255, 0.7) !important;
@@ -161,6 +171,7 @@ html, body, #root {
 }
 .custom-tabs__panel { /* tabs_panel */
   padding: 20px 15px;
+  overflow: auto;
 }
 
 /* LIST
@@ -310,4 +321,67 @@ html, body, #root {
 }
 .track-table tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #e21818;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* settings modal */
+.settings-modal-overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.settings-modal {
+  border-radius: 10px;
+  height: 70%;
+  width: 70%;
+  position: relative;
+  background: white;
+  padding: 0 10px;
+  animation: popup 0.15s ease-in 0s 1;
+}
+@keyframes popup {
+  0% {transform: scale(0.9,0.9)}
+  70% {transform: scale(1.07,1.07)}
+  100% {transform: scale(1,1)}
 }

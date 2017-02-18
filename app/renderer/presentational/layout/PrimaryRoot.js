@@ -5,7 +5,7 @@ import Library from './../pages/library';
 const PrimaryRoot = () => {
   return (
     <div className="primary-root">
-      <Header title="Library"/>
+      <Header />
       <Library />
     </div>
   );
