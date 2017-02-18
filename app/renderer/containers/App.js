@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import MainSection from './../presentational/layout/MainSection';
-import PlayerContainer from './PlayerContainer';
+import React, { Component } from 'react'
+import MainSection from './../presentational/layout/MainSection'
+import PlayerContainer from './PlayerContainer'
 
 class App extends Component {
-  render() {
+  render () {
     return (
-      <div className="app">
+      <div className='app'>
         <MainSection />
         <PlayerContainer />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

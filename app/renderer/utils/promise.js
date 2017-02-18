@@ -3,6 +3,6 @@ export const settle = (arr) => {
     return promise.then(
       value => ({state: 'resolved', value}),
       value => ({state: 'rejected', value})
-    );
-  }));
-};
+    )
+  }))
+}

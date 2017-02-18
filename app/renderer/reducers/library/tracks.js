@@ -1,4 +1,4 @@
-import { ADD_LIBRARY_TRACK } from './../../actions/library';
+import { ADD_LIBRARY_TRACK } from './../../actions/library'
 
 const initialTracks = [{
   id: '12345',
@@ -8,12 +8,12 @@ const initialTracks = [{
   src: './test.mp3',
   genre: ['Pop'],
   length: 220
-}];
+}]
 
-const tracks = (state=initialTracks, action) => {
+const tracks = (state = initialTracks, action) => {
   switch (action.type) {
     case ADD_LIBRARY_TRACK: {
-      const track = action.track;
+      const track = action.track
       return [
         ...state,
         {
@@ -25,11 +25,11 @@ const tracks = (state=initialTracks, action) => {
           genre: track.genre,
           length: track.length
         }
-      ];
+      ]
     }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default tracks;
+export default tracks

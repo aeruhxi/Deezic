@@ -1,10 +1,10 @@
-import { connect } from 'react-redux';
-import Player from '../presentational/audio-player/Player';
-import { togglePlay, changeCurrentSeconds, seekToSeconds, setDuration, changeVolume } from './../actions/player';
+import { connect } from 'react-redux'
+import Player from '../presentational/audio-player/Player'
+import { togglePlay, changeCurrentSeconds, seekToSeconds, setDuration, changeVolume } from './../actions/player'
 
 const mapStateToProps = ({ player }) => ({
   ...player
-});
+})
 
 const mapDispatchToProps = (dispatch) => ({
   onPlayClick: () => dispatch(togglePlay),
@@ -12,11 +12,11 @@ const mapDispatchToProps = (dispatch) => ({
   onSeekerChange: (e) => dispatch(seekToSeconds(e.target.value)),
   onDurationSet: (dur) => dispatch(setDuration(dur)),
   onVolumeChange: (e) => dispatch(changeVolume(e.target.value / 100))
-});
+})
 
 const PlayerContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Player);
+)(Player)
 
-export default PlayerContainer;
+export default PlayerContainer

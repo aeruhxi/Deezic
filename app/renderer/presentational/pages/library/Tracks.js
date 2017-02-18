@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import Table from './../../generic/Table';
+import React, { Component } from 'react'
+import Table from './../../generic/Table'
 
 class Tracks extends Component {
 
-  render() {
+  render () {
     return (
       <Table
         indexed
@@ -13,12 +13,12 @@ class Tracks extends Component {
           {name: 'Song'},
           {name: 'Artist'},
           {name: 'Album'},
-          {name: 'Time'},
+          {name: 'Time'}
         ]}
         rows={this.props.tracks}
         />
-    );
+    )
   }
 }
 
-export default Tracks;
+export default Tracks

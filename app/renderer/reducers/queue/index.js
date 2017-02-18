@@ -1,10 +1,10 @@
-const queue = (state=[], action) => {
+const queue = (state = [], action) => {
   switch (action.type) {
     case 'SET_QUEUE':
       return {
         ...state,
         queue: action.queue
-      };
+      }
 
     case 'ADD_TO_QUEUE':
       return {
@@ -19,11 +19,11 @@ const queue = (state=[], action) => {
             src: action.src
           }
         ]
-      };
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default queue;
+export default queue

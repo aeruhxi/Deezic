@@ -4,7 +4,7 @@ import {
   SET_DURATION,
   SET_CURRENT_SONG,
   CHANGE_VOLUME,
-  CHANGE_CURRENT_SECONDS } from './../actions/player';
+  CHANGE_CURRENT_SECONDS } from './../actions/player'
 
 const initialState = {
   isPlaying: false,
@@ -19,21 +19,21 @@ const initialState = {
     src: ''
   },
   volume: 1
-};
+}
 
-const player = (state=initialState, action) => {
+const player = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_PLAY:
       return {
         ...state,
         isPlaying: !state.isPlaying
-      };
+      }
 
     case SEEK:
       return {
         ...state,
         playFromSeconds: action.playFromSeconds
-      };
+      }
 
     case SET_CURRENT_SONG:
       return {
@@ -45,29 +45,29 @@ const player = (state=initialState, action) => {
           albumArt: action.albumArt,
           src: action.src
         }
-      };
+      }
 
     case SET_DURATION:
       return {
         ...state,
         totalSeconds: action.totalSeconds
-      };
+      }
 
     case CHANGE_VOLUME:
       return {
         ...state,
         volume: action.volume
-      };
+      }
 
     case CHANGE_CURRENT_SECONDS:
       return {
         ...state,
         currentSeconds: action.currentSeconds
-      };
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default player;
+export default player

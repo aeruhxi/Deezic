@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-const NON_NUMERIC_CLASS = 'mdl-data-table__cell--non-numeric';
+const NON_NUMERIC_CLASS = 'mdl-data-table__cell--non-numeric'
 
 const Table = ({ headers, rows, className, indexed, indexColumnName }) => {
   return (
@@ -18,14 +18,14 @@ const Table = ({ headers, rows, className, indexed, indexColumnName }) => {
           <tr key={row.id || index}>
             {indexed && <td key='id' className={NON_NUMERIC_CLASS}>{index + 1}</td>}
             {Object.keys(row).map((columnName, id) => {
-              if (columnName == 'id') return;
-              return <td key={id} className={NON_NUMERIC_CLASS}>{row[columnName]}</td>;
+              if (columnName === 'id') return
+              return <td key={id} className={NON_NUMERIC_CLASS}>{row[columnName]}</td>
             })}
           </tr>
         ))}
       </tbody>
     </table>
-  );
-};
+  )
+}
 
-export default Table;
+export default Table

@@ -1,13 +1,13 @@
-import { connect } from 'react-redux';
-import Tracks from './../../presentational/pages/library/Tracks';
-import { humanizeSeconds } from './../../utils/time';
+import { connect } from 'react-redux'
+import Tracks from './../../presentational/pages/library/Tracks'
+import { humanizeSeconds } from './../../utils/time'
 
 const mapStateToProps = ({ library }) => {
-  const tracks = library.tracks;
+  const tracks = library.tracks
   return {
     tracks: getTracks(tracks)
-  };
-};
+  }
+}
 
 const getTracks = (tracks) => {
   return tracks.map(track => ({
@@ -16,11 +16,11 @@ const getTracks = (tracks) => {
     artist: track.artist,
     album: track.album,
     time: humanizeSeconds(track.length)
-  }));
-};
+  }))
+}
 
 const TracksContainer = connect(
   mapStateToProps
-)(Tracks);
+)(Tracks)
 
-export default TracksContainer;
+export default TracksContainer

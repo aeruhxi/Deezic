@@ -1,36 +1,35 @@
-import { connect } from 'react-redux';
-import SettingsModal from './../../presentational/modals/SettingsModal';
-import { setModal } from './../../actions/modal';
-import { addLibraryDirs, addLibraryTracks } from './../../actions/library';
-import { readDirRecursively } from './../../utils/files';
-import { settle } from './../../utils/promise';
-import fs from 'fs';
-import mm from 'musicmetadata';
-const { dialog } = require('electron').remote;
-import shortid from 'shortid';
-
+import { connect } from 'react-redux'
+import SettingsModal from './../../presentational/modals/SettingsModal'
+import { setModal } from './../../actions/modal'
+import { addLibraryDirs, addLibraryTracks } from './../../actions/library'
+import { readDirRecursively } from './../../utils/files'
+import { settle } from './../../utils/promise'
+import fs from 'fs'
+import mm from 'musicmetadata'
+const { dialog } = require('electron').remote
+import shortid from 'shortid'
 
 const mapStateToProps = ({ currentModal }) => ({
   currentModal
-});
+})
 
 const mapDispatchToProps = (dispatch) => ({
   handleRequestClose: () => dispatch(setModal(null)),
   handleAddLibClick: () => handleAddLibClick(dispatch)
-});
+})
 
 const SettingsModalContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(SettingsModal);
+)(SettingsModal)
 
-export default SettingsModalContainer;
+export default SettingsModalContainer
 
-function handleAddLibClick(dispatch) {
-  const dirs  = dialog.showOpenDialog({properties: ['openFile', 'openDirectory']});
-  if (dirs === undefined) return;  // If dialog is cancelled
+function handleAddLibClick (dispatch) {
+  const dirs = dialog.showOpenDialog({properties: ['openFile', 'openDirectory']})
+  if (dirs === undefined) return  // If dialog is cancelled
 
-  addLibraryDirs(dirs);
+  addLibraryDirs(dirs)
 
   readDirRecursively(dirs[0])
     .then(files => settle(files.map(readMetadata)))
@@ -49,20 +48,20 @@ function handleAddLibClick(dispatch) {
           genre: metadata.genre || 'Unknown genre',
           length: metadata.duration || 0
         }))))
-    .catch(console.error);   // eslint-disable-line no-console
+    .catch(console.error)   // eslint-disable-line no-console
 }
 
 // Resolves a promise with metadata for a given file
 const readMetadata = (file) => {
   return new Promise((resolve, reject) => {
-    const readableStream = fs.createReadStream(file);
+    const readableStream = fs.createReadStream(file)
     mm(readableStream, {duration: true}, (err, metadata) => {
-      if (err) reject(err);
-      readableStream.close();
+      if (err) reject(err)
+      readableStream.close()
       resolve({
         ...metadata,
         src: file
-      });
-    });
-  });
-};
+      })
+    })
+  })
+}

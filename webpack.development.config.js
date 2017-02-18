@@ -1,5 +1,5 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   context: path.resolve(__dirname, 'app', 'renderer'),
@@ -45,4 +45,4 @@ module.exports = {
     contentBase: 'dist'
   },
   target: 'electron-renderer'
-};
+}

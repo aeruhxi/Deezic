@@ -1,18 +1,18 @@
-import { ADD_LIBRARY_TRACK } from './../../actions/library';
+import { ADD_LIBRARY_TRACK } from './../../actions/library'
 
-const albums = (state=[], action) => {
+const albums = (state = [], action) => {
   switch (action.type) {
     case ADD_LIBRARY_TRACK: {
-      const album = action.track.album;
-      if (state.includes(album)) return state;
+      const album = action.track.album
+      if (state.includes(album)) return state
       return [
         ...state,
         album
-      ];
+      ]
     }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default albums;
+export default albums

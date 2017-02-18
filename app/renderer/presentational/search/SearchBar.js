@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
 const SearchBar = () => {
   return (
-    <div className="searchbar">
+    <div className='searchbar'>
       <input
-        type="text"
-        placeholder="Search music, artist, genre"
+        type='text'
+        placeholder='Search music, artist, genre'
       />
     </div>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar
