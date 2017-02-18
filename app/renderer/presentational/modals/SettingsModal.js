@@ -16,6 +16,12 @@ class SettingsModal extends Component {
       >
         <h3>Settings</h3>
         <button onClick={this.props.handleAddLibClick}>Add folder</button>
+        <h3>Directories</h3>
+        <ul>
+          {this.props.dirs.map((dir, index) => (
+            <li key={index}>{dir}</li>
+          ))}
+        </ul>
       </Modal>
     )
   }

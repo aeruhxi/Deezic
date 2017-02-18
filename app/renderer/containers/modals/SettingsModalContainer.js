@@ -9,8 +9,9 @@ import mm from 'musicmetadata'
 const { dialog } = require('electron').remote
 import shortid from 'shortid'
 
-const mapStateToProps = ({ currentModal }) => ({
-  currentModal
+const mapStateToProps = ({ currentModal, library }) => ({
+  currentModal,
+  dirs: library.dirs
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -29,7 +30,7 @@ function handleAddLibClick (dispatch) {
   const dirs = dialog.showOpenDialog({properties: ['openFile', 'openDirectory']})
   if (dirs === undefined) return  // If dialog is cancelled
 
-  addLibraryDirs(dirs)
+  dispatch(addLibraryDirs(dirs))
 
   readDirRecursively(dirs[0])
     .then(files => settle(files.map(readMetadata)))
