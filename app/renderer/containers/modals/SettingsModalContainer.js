@@ -27,12 +27,14 @@ const SettingsModalContainer = connect(
 export default SettingsModalContainer
 
 function handleAddLibClick (dispatch) {
-  const dirs = dialog.showOpenDialog({properties: ['openFile', 'openDirectory']})
+  const dirs = dialog.showOpenDialog({
+    properties: ['openFile', 'openDirectory']
+  })
   if (dirs === undefined) return  // If dialog is cancelled
 
   dispatch(addLibraryDirs(dirs))
 
-  readDirRecursively(dirs[0])
+  readDirRecursively(dirs[0], ['.mp3'])
     .then(files => settle(files.map(readMetadata)))
     .then(settled =>
       settled
