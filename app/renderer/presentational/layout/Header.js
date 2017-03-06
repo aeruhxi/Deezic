@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import SearchBar from './../search/SearchBar'
+import SearchBar from '../search/SearchBar'
 import { setModal } from './../../actions/modal'
 
 let Header = ({ dispatch }) => {
