@@ -39,6 +39,7 @@ const player = (state = initialState, action) => {
       return {
         ...state,
         currentSong: {
+          id: action.id,
           title: action.title,
           artist: action.artist,
           album: action.album,
