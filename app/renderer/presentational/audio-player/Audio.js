@@ -29,13 +29,9 @@ class Audio extends Component {
   }
 
   render () {
-    const {
-      src
-    } = this.props
-
     return (
       <audio
-        src={src}
+        src={this.props.src}
         ref={(audioEl) => { this.audioEl = audioEl }}
         onTimeUpdate={this.props.onTimeUpdate}
         onError={this.props.onError} />
