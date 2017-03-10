@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "description": "Desktop Music Player for Deezer",
   "main": "./app/main/index.js",
-  "standard" :{
-    "globals": [ "describe", "it", "expect", "beforeEach", "afterEach" ]
+  "standard": {
+    "globals": ["describe", "it", "expect", "beforeEach", "afterEach"]
   },
   "jest": {
     "testRegex": "test/.*|\\.test\\.js"
