@@ -1,12 +1,10 @@
-import { remote } from 'electron'
 import rootReducer from './../reducers'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
 
 export default () => {
-  if (remote.process.env.NODE_ENV === 'development') {
-    return createStore(rootReducer,
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-  } else {
-    return createStore(rootReducer)
-  }
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+  return createStore(rootReducer, composeEnhancers(
+    applyMiddleware(thunk)
+  ))
 }
