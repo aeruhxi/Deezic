@@ -1,13 +1,7 @@
 import { connect } from 'react-redux'
 import SettingsModal from './../../presentational/modals/SettingsModal'
 import { setModal } from './../../actions/modal'
-import { addLibraryDirs, addLibraryTracks } from './../../actions/library'
-import { readDirRecursively } from './../../utils/files'
-import { settle } from './../../utils/promise'
-import fs from 'fs'
-import mm from 'musicmetadata'
-const { dialog } = require('electron').remote
-import shortid from 'shortid'
+import { readDirsAndAddToLibrary } from './../../actions/library'
 
 const mapStateToProps = ({ currentModal, library }) => ({
   currentModal,
@@ -16,7 +10,7 @@ const mapStateToProps = ({ currentModal, library }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   handleRequestClose: () => dispatch(setModal(null)),
-  handleAddLibClick: () => handleAddLibClick(dispatch)
+  handleAddLibClick: () => dispatch(readDirsAndAddToLibrary())
 })
 
 const SettingsModalContainer = connect(
@@ -25,44 +19,3 @@ const SettingsModalContainer = connect(
 )(SettingsModal)
 
 export default SettingsModalContainer
-
-function handleAddLibClick (dispatch) {
-  const dirs = dialog.showOpenDialog({
-    properties: ['openFile', 'openDirectory']
-  })
-  if (dirs === undefined) return  // If dialog is cancelled
-
-  dispatch(addLibraryDirs(dirs))
-
-  readDirRecursively(dirs[0], ['.mp3'])
-    .then(files => settle(files.map(readMetadata)))
-    .then(settled =>
-      settled
-        .filter(x => x.state === 'resolved')
-        .map(x => x.value))
-    .then(results =>
-      results.map(metadata => ({
-        id: shortid.generate(),
-        title: metadata.title || 'Unknown Title',
-        artist: metadata.artist[0] || 'Unknown Artist',
-        album: metadata.album || 'Unknown Album',
-        length: metadata.duration,
-        src: metadata.src
-      })))
-    .then(tracks => dispatch(addLibraryTracks(tracks)))
-}
-
-// Resolves a promise with metadata for a given file
-const readMetadata = (file) => {
-  return new Promise((resolve, reject) => {
-    const readableStream = fs.createReadStream(file)
-    mm(readableStream, {duration: true}, (err, metadata) => {
-      if (err) reject(err)
-      readableStream.close()
-      resolve({
-        ...metadata,
-        src: file
-      })
-    })
-  })
-}
