@@ -297,31 +297,6 @@ html, body, #root {
   background-color: #00BCD4;
 }
 
-/* Library table*/
-.track-table {
-  border: none !important;
-  width: 100%;
-  background-color: transparent;
-  box-shadow: none;
-}
-.track-table thead td,
-.track-table tbody td {
-  border: none;
-}
-.track-table thead tr,
-.track-table tbody tr {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-.track-table tr th {
-  color: rgba(255, 255, 255, 0.7);
-  text-transform: uppercase;
-}
-.track-table tr td {
-  color: white
-}
-.track-table tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
 
 /* SCROLLBAR */
 ::-webkit-scrollbar {
