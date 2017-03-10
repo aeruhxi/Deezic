@@ -4,7 +4,6 @@ import Tabs from './../../generic/Tabs'
 import TracksContainer from './../../../containers/library/TracksContainer'
 
 class Library extends Component {
-
   render () {
     return (
       <Tabs

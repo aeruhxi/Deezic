@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Modal from 'react-modal'
 
 class SettingsModal extends Component {
-
   render () {
     return (
       <Modal

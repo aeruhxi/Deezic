@@ -49,7 +49,6 @@ class Volume extends Component {
       return 'volume_down'
     }
   }
-
 }
 
 export default Volume
