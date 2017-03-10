@@ -1,10 +1,10 @@
-export const ADD_LIBRARY_TRACK = 'ADD_LIBRARY_TRACK'
+export const ADD_LIBRARY_TRACKS = 'ADD_LIBRARY_TRACKS'
 export const ADD_LIBRARY_DIR = 'ADD_LIBRARY_DIR'
 
-export const addLibraryTracks = (track) => {
+export const addLibraryTracks = (tracks) => {
   return {
-    type: ADD_LIBRARY_TRACK,
-    track
+    type: ADD_LIBRARY_TRACKS,
+    tracks
   }
 }
 
