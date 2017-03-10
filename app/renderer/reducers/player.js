@@ -1,10 +1,12 @@
 import {
-  TOGGLE_PLAY,
   SEEK,
   SET_DURATION,
   SET_CURRENT_SONG,
   CHANGE_VOLUME,
-  CHANGE_CURRENT_SECONDS } from './../actions/player'
+  CHANGE_CURRENT_SECONDS,
+  PLAY,
+  PAUSE
+} from './../actions/player'
 
 const initialState = {
   isPlaying: false,
@@ -23,10 +25,16 @@ const initialState = {
 
 const player = (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_PLAY:
+    case PLAY:
       return {
         ...state,
-        isPlaying: !state.isPlaying
+        isPlaying: true
+      }
+
+    case PAUSE:
+      return {
+        ...state,
+        isPlaying: false
       }
 
     case SEEK:

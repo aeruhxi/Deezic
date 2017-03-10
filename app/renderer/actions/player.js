@@ -4,9 +4,15 @@ export const SEEK = 'SEEK'
 export const SET_CURRENT_SONG = 'SET_CURRENT_SONG'
 export const SET_DURATION = 'SET_DURATION'
 export const CHANGE_VOLUME = 'CHANGE_VOLUME'
+export const PLAY = 'PLAY'
+export const PAUSE = 'PAUSE'
 
-export const togglePlay = () => ({
-  type: TOGGLE_PLAY
+export const play = () => ({
+  type: PLAY
+})
+
+export const pause = () => ({
+  type: PAUSE
 })
 
 export const changeCurrentSeconds = (seconds) => ({
@@ -38,3 +44,15 @@ export const changeVolume = (volume) => ({
   type: CHANGE_VOLUME,
   volume
 })
+
+export const togglePlay = () => {
+  return (dispatch, getState) => {
+    const { player } = getState()
+
+    if (player.isPlaying) {
+      dispatch(pause())
+    } else {
+      dispatch(play())
+    }
+  }
+}
