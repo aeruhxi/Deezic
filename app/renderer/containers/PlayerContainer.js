@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import Player from '../presentational/audio-player/Player'
 import {
   togglePlay, changeCurrentSeconds, seekToSeconds, setDuration,
-  changeVolume, pause
+  changeVolume, pause, play
 } from './../actions/player'
 
 const mapStateToProps = ({ player }) => ({
@@ -15,7 +15,8 @@ const mapDispatchToProps = (dispatch) => ({
   onSeekerChange: (e) => dispatch(seekToSeconds(e.target.value)),
   onDurationSet: (dur) => dispatch(setDuration(dur)),
   onVolumeChange: (e) => dispatch(changeVolume(e.target.value / 100)),
-  onError: (e) => dispatch(dispatch(pause()))
+  onError: (e) => dispatch(dispatch(pause())),
+  onCanPlayThrough: (e) => dispatch(play())
 })
 
 const PlayerContainer = connect(
