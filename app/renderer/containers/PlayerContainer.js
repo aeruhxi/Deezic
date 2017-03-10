@@ -7,11 +7,12 @@ const mapStateToProps = ({ player }) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onPlayClick: () => dispatch(togglePlay),
+  onPlayClick: () => dispatch(togglePlay()),
   onTimeUpdate: (e) => dispatch(changeCurrentSeconds(e.target.currentTime)),
   onSeekerChange: (e) => dispatch(seekToSeconds(e.target.value)),
   onDurationSet: (dur) => dispatch(setDuration(dur)),
-  onVolumeChange: (e) => dispatch(changeVolume(e.target.value / 100))
+  onVolumeChange: (e) => dispatch(changeVolume(e.target.value / 100)),
+  onError: (e) => dispatch(togglePlay())
 })
 
 const PlayerContainer = connect(

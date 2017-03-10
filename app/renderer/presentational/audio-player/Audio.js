@@ -34,13 +34,14 @@ class Audio extends Component {
         src={this.props.src}
         ref={(audioEl) => { this.audioEl = audioEl }}
         onTimeUpdate={this.props.onTimeUpdate}
-        onError={this.props.onError} />
+        onCanPlayThrough={this.props.onCanPlayThrough}
+      />
     )
   }
 
   togglePlay (isPlaying) {
     if (isPlaying) {
-      this.audioEl.play()
+      this.audioEl.play().catch(this.props.onError)
     } else {
       this.audioEl.pause()
     }

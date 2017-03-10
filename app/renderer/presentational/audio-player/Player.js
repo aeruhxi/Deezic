@@ -18,7 +18,9 @@ const Player = ({
   totalSeconds,
   onSeekerChange,
   onDurationSet,
-  onVolumeChange
+  onVolumeChange,
+  onError,
+  onCanPlayThrough
 }) => {
   return (
     <section className='player'>
@@ -34,7 +36,9 @@ const Player = ({
         playFromSeconds={playFromSeconds}
         onTimeUpdate={onTimeUpdate}
         onDurationSet={onDurationSet}
-          />
+        onError={onError}
+        onCanPlayThrough={onCanPlayThrough}
+      />
       <div className='player__info-block'>
         <img className='player__album-art' src={currentSong.albumArt || defaultAlbumImage} />
         <div className='player__info'>
