@@ -41,17 +41,15 @@ function handleAddLibClick (dispatch) {
         .filter(x => x.state === 'resolved')
         .map(x => x.value))
     .then(results =>
-      results.forEach(metadata =>
-        dispatch(addLibraryTracks({
-          id: shortid.generate(),
-          title: metadata.title || 'Unknown Title',
-          artist: metadata.artist[0] || 'Unknown Artist',
-          album: metadata.album || 'Unknown Album',
-          src: metadata.src,
-          genre: metadata.genre || 'Unknown genre',
-          length: metadata.duration || 0
-        }))))
-    .catch(console.error)   // eslint-disable-line no-console
+      results.map(metadata => ({
+        id: shortid.generate(),
+        title: metadata.title || 'Unknown Title',
+        artist: metadata.artist[0] || 'Unknown Artist',
+        album: metadata.album || 'Unknown Album',
+        length: metadata.duration,
+        src: metadata.src
+      })))
+    .then(tracks => dispatch(addLibraryTracks(tracks)))
 }
 
 // Resolves a promise with metadata for a given file
