@@ -1,25 +1,21 @@
 import { ADD_LIBRARY_TRACKS } from './../../actions/library'
+import _ from 'lodash/core'
 
 const albums = (state = [], action) => {
   switch (action.type) {
-    case ADD_LIBRARY_TRACKS: {
-      return action.tracks
-        .map(track => ({artist: track.album.artist, album: track.album.album}))
-        .reduce((acc, track) => (deepIncludes(acc, track) ? acc : acc.concat(track)), [])
-        .filter(album => !deepIncludes(state, album))
-    }
+    case ADD_LIBRARY_TRACKS:
+      return [
+        ...state,
+        action.tracks
+        .map(track => ({artist: track.artist, album: track.album}))
+        // Remove duplicates
+        .reduce((acc, track) => (_.some(acc, track) ? acc : acc.concat(track)), [])
+        // Filter out albums that are already in state
+        .filter(album => !_.some(state, album))
+      ]
     default:
       return state
   }
 }
 
 export default albums
-
-function deepIncludes (arr, targetObj) {
-  for (let obj of arr) {
-    if (obj.artist === targetObj.artist && obj.album === targetObj.album) {
-      return true
-    }
-  }
-  return false
-}
