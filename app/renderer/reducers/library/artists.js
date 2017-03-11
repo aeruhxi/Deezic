@@ -5,7 +5,7 @@ const artists = (state = [], action) => {
     case ADD_LIBRARY_TRACKS: {
       let filteredArtists = action.tracks.map(track => track.artist)
       filteredArtists = [...new Set(filteredArtists)]
-      return filteredArtists.filter(artist => !state.includes(artist))
+      return [...state, filteredArtists.filter(artist => !state.includes(artist))]
     }
     default:
       return state
