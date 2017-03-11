@@ -1,4 +1,4 @@
-import { SET_MODAL } from './../../actions/modal'
+import { SET_MODAL } from './../../actions/actionTypes'
 
 const currentModal = (state = null, action) => {
   switch (action.type) {

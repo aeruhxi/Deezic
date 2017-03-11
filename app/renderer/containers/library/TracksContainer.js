@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
 import Tracks from './../../presentational/pages/library/Tracks'
 import { humanizeSeconds } from './../../utils/time'
-import { togglePlayById } from './../../actions/player'
-import { allTracks } from '../../reducers/library/tracks'
+import { togglePlayById } from './../../actions/thunks/player'
+import { getAllTracks } from '../../reducers/library/tracks'
 
 const mapStateToProps = (state) => {
   const rawTracks = state.library.tracks
-  const tracks = allTracks(rawTracks)
+  const tracks = getAllTracks(rawTracks)
   return {
     rawTracks,
     tracks: getUITracks(tracks),
@@ -31,7 +31,7 @@ const getUITracks = (tracks) => {
     id: track.id,
     song: track.title,
     artist: track.artist,
-    album: track.album.album,
+    album: track.album,
     time: humanizeSeconds(track.length)
   }))
 }

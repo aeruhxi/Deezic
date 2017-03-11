@@ -1,4 +1,4 @@
-import { ADD_LIBRARY_TRACKS } from './../../actions/library'
+import { ADD_LIBRARY_TRACKS } from './../../actions/actionTypes'
 import _ from 'lodash/core'
 
 const albums = (state = [], action) => {

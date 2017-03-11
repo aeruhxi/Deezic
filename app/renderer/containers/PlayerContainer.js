@@ -1,9 +1,12 @@
 import { connect } from 'react-redux'
 import Player from '../presentational/audio-player/Player'
 import {
-  togglePlay, changeCurrentSeconds, seekToSeconds, setDuration,
+  changeCurrentSeconds, seekToSeconds, setDuration,
   changeVolume, pause, play
 } from './../actions/player'
+import {
+  togglePlay
+} from './../actions/thunks/player'
 
 const mapStateToProps = ({ player }) => ({
   ...player

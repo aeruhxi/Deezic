@@ -6,7 +6,7 @@ import {
   CHANGE_CURRENT_SECONDS,
   PLAY,
   PAUSE
-} from './../actions/player'
+} from './../actions/actionTypes'
 
 const initialState = {
   isPlaying: false,

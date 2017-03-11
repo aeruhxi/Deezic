@@ -1,4 +1,4 @@
-import { ADD_LIBRARY_TRACKS } from './../../actions/library'
+import { ADD_LIBRARY_TRACKS } from './../../actions/actionTypes'
 
 const artists = (state = [], action) => {
   switch (action.type) {

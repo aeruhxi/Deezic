@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import SettingsModal from './../../presentational/modals/SettingsModal'
 import { setModal } from './../../actions/modal'
-import { readDirsAndAddToLibrary } from './../../actions/library'
+import { readDirsAndAddToLibrary } from './../../actions/thunks/library'
 
 const mapStateToProps = ({ currentModal, library }) => ({
   currentModal,

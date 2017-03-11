@@ -1,7 +1,7 @@
-import { ADD_LIBRARY_TRACKS } from './../../actions/library'
+import { ADD_LIBRARY_TRACKS } from './../../actions/actionTypes'
 import { combineReducers } from 'redux'
 
-const byId = (state = {}, action) => {
+export const byId = (state = {}, action) => {
   switch (action.type) {
     case ADD_LIBRARY_TRACKS: {
       let tracks = {}
@@ -31,7 +31,7 @@ const track = (track) => {
     id: track.id,
     title: track.title,
     artist: track.artist,
-    album: {artist: track.artist, album: track.album},
+    album: track.album,
     length: track.length,
     src: track.src
   }
@@ -42,6 +42,6 @@ export default combineReducers({
   allIds
 })
 
-export function allTracks ({ allIds, byId }) {
+export function getAllTracks ({ allIds, byId }) {
   return allIds.map(id => byId[id])
 }

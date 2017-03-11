@@ -1,4 +1,4 @@
-import { ADD_LIBRARY_DIR } from './../../actions/library'
+import { ADD_LIBRARY_DIR } from './../../actions/actionTypes'
 
 const dirs = (state = [], action) => {
   switch (action.type) {
