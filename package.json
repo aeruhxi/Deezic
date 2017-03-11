@@ -4,7 +4,7 @@
   "description": "Desktop Music Player for Deezer",
   "main": "./app/main/index.js",
   "standard": {
-    "globals": ["describe", "it", "expect", "beforeEach", "afterEach"]
+    "env": [ "jest" ]
   },
   "jest": {
     "testRegex": "test/.*|\\.test\\.js"
@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "electron": "^1.4.13",
+    "lodash": "^4.17.4",
     "musicmetadata": "^2.0.5",
     "react": "^15.4.1",
     "react-autocomplete": "^1.4.0",
