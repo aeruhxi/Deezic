@@ -1,25 +1,12 @@
+import { CREATE_QUEUE, ADD_TRACKS_IN_QUEUE } from './../../actions/actionTypes'
+
 const queue = (state = [], action) => {
   switch (action.type) {
-    case 'SET_QUEUE':
-      return {
-        ...state,
-        queue: action.queue
-      }
+    case CREATE_QUEUE:
+      return action.trackIds
 
-    case 'ADD_TO_QUEUE':
-      return {
-        ...state,
-        queue: [
-          ...state.queue,
-          {
-            title: action.title,
-            artist: action.artist,
-            album: action.album,
-            albumArt: action.albumArt,
-            src: action.src
-          }
-        ]
-      }
+    case ADD_TRACKS_IN_QUEUE:
+      return [...state, ...action.trackIds]
 
     default:
       return state
