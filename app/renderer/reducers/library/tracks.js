@@ -41,7 +41,3 @@ export default combineReducers({
   byId,
   allIds
 })
-
-export function getAllTracks ({ allIds, byId }) {
-  return allIds.map(id => byId[id])
-}

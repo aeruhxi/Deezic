@@ -2,13 +2,11 @@ import { connect } from 'react-redux'
 import Tracks from './../../presentational/pages/library/Tracks'
 import { humanizeSeconds } from './../../utils/time'
 import { togglePlayById } from './../../actions/thunks/player'
-import { getAllTracks } from '../../reducers/library/tracks'
+import { getAllTracks } from '../../selectors/library'
 
 const mapStateToProps = (state) => {
-  const rawTracks = state.library.tracks
-  const tracks = getAllTracks(rawTracks)
+  const tracks = getAllTracks(state)
   return {
-    rawTracks,
     tracks: getUITracks(tracks),
     currentSongId: state.player.currentSong.id,
     isPlaying: state.player.isPlaying
