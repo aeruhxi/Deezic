@@ -14,6 +14,7 @@ const initialState = {
   totalSeconds: 0,
   currentSeconds: 0,
   currentSong: {
+    id: '',
     title: '',
     artist: '',
     album: '',
