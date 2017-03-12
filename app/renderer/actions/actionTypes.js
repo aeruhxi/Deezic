@@ -13,3 +13,7 @@ export const SET_DURATION = 'SET_DURATION'
 export const CHANGE_VOLUME = 'CHANGE_VOLUME'
 export const PLAY = 'PLAY'
 export const PAUSE = 'PAUSE'
+
+// queue
+export const CREATE_QUEUE = 'CREATE_QUEUE'
+export const ADD_TRACKS_IN_QUEUE = 'ADD_TRACKS_IN_QUEUE'
