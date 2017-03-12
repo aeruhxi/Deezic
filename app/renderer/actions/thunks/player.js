@@ -1,6 +1,7 @@
 import {
   play, pause, setCurrentSong
 } from './../player'
+import { createQueue } from '../queue'
 
 export const togglePlay = () => {
   return (dispatch, getState) => {
@@ -28,5 +29,12 @@ export const togglePlayById = (id) => {
       const song = library.tracks.byId[id]
       dispatch(setCurrentSong(song))
     }
+  }
+}
+
+export const playAndAddSongsToQueue = (id, trackIds) => {
+  return (dispatch, getState) => {
+    togglePlayById(id)(dispatch, getState)
+    dispatch(createQueue(trackIds))
   }
 }
