@@ -38,3 +38,24 @@ export const playAndAddSongsToQueue = (id, trackIds) => {
     dispatch(createQueue(trackIds))
   }
 }
+
+export const playNextOnQueue = () => {
+  return (dispatch, getState) => {
+    const { player, queue } = getState()
+
+    let currentIndex = queue.indexOf(player.currentSong.id)
+    currentIndex = ++currentIndex % queue.length
+    togglePlayById(queue[currentIndex])(dispatch, getState)
+  }
+}
+
+export const playPrevOnQueue = () => {
+  return (dispatch, getState) => {
+    const { player, queue } = getState()
+    const queLen = queue.length
+
+    let currentIndex = queue.indexOf(player.currentSong.id)
+    currentIndex = ((--currentIndex % queLen) + queLen) % queLen // Actual Modulo
+    togglePlayById(queue[currentIndex])(dispatch, getState)
+  }
+}

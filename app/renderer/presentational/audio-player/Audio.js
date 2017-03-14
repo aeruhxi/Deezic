@@ -35,6 +35,7 @@ class Audio extends Component {
         ref={(audioEl) => { this.audioEl = audioEl }}
         onTimeUpdate={this.props.onTimeUpdate}
         onCanPlayThrough={this.props.onCanPlayThrough}
+        onEnded={this.props.onEnded}
       />
     )
   }

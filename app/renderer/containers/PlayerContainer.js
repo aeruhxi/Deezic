@@ -5,7 +5,8 @@ import {
   changeVolume, pause, play
 } from './../actions/player'
 import {
-  togglePlay
+  togglePlay,
+  playNextOnQueue, playPrevOnQueue
 } from './../actions/thunks/player'
 
 const mapStateToProps = ({ player }) => ({
@@ -14,12 +15,15 @@ const mapStateToProps = ({ player }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onPlayClick: () => dispatch(togglePlay()),
+  onPrevClick: () => dispatch(playPrevOnQueue()),
+  onNextClick: () => dispatch(playNextOnQueue()),
   onTimeUpdate: (e) => dispatch(changeCurrentSeconds(e.target.currentTime)),
   onSeekerChange: (e) => dispatch(seekToSeconds(e.target.value)),
   onDurationSet: (dur) => dispatch(setDuration(dur)),
   onVolumeChange: (e) => dispatch(changeVolume(e.target.value / 100)),
   onError: (e) => dispatch(dispatch(pause())),
-  onCanPlayThrough: (e) => dispatch(play())
+  onCanPlayThrough: (e) => dispatch(play()),
+  onEnded: (e) => dispatch(playNextOnQueue())
 })
 
 const PlayerContainer = connect(

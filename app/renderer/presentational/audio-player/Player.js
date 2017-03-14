@@ -20,7 +20,8 @@ const Player = ({
   onDurationSet,
   onVolumeChange,
   onError,
-  onCanPlayThrough
+  onCanPlayThrough,
+  onEnded
 }) => {
   return (
     <section className='player'>
@@ -28,7 +29,8 @@ const Player = ({
         containerClassName='player__seeker'
         value={currentSeconds}
         max={totalSeconds}
-        onSlide={onSeekerChange} />
+        onSlide={onSeekerChange}
+      />
       <Audio
         src={currentSong.src}
         isPlaying={isPlaying}
@@ -38,6 +40,7 @@ const Player = ({
         onDurationSet={onDurationSet}
         onError={onError}
         onCanPlayThrough={onCanPlayThrough}
+        onEnded={onEnded}
       />
       <div className='player__info-block'>
         <img className='player__album-art' src={currentSong.albumArt || defaultAlbumImage} />
