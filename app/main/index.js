@@ -14,7 +14,7 @@ const getMainURL = () => {
       slashes: true
     })
   }
-
+  
   // For production
   return url.format({
     pathname: path.resolve(__dirname, '..', '..', 'dist', 'index.html'),
@@ -24,7 +24,7 @@ const getMainURL = () => {
 }
 
 const createMainWin = () => {
-  mainWin = new BrowserWindow({width: 800, height: 600})
+  mainWin = new BrowserWindow({ width: 800, height: 600 })
   mainWin.loadURL(getMainURL())
 
   // Open the DevTools.
