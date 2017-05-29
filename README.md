@@ -1,6 +1,6 @@
 # Deezic
 Deezic is a Desktop Music Player App for Deezer made with Electron, React, and Redux.
-This is currently in development.
+This is being completely rewritten in [rewrite](https://github.com/abs-zero/Deezic/tree/rewrite) branch.
 
 ## Development
 ### Requirements
