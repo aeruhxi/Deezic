@@ -2,28 +2,40 @@
   "env": {
     "es6": true,
     "node": true,
-    "browser": true
+    "browser": true,
+    "jest/globals": true
   },
-  "parser": "babel-eslint",
   "extends": "eslint:recommended",
+  "parser": "babel-eslint",
   "parserOptions": {
-    "sourceType": "module",
     "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
       "jsx": true
-    }
-  },
-  "rules": {
-    "quotes": ["error", "single"],
-    "indent": [
-      "error",
-      2,
-      {"SwitchCase": 1}
-    ],
-    "semi": ["warn", "always"],
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error"
+    },
+    "sourceType": "module"
   },
   "plugins": [
-    "react"
-  ]
+    "react",
+    "jest"
+  ],
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  }
 }

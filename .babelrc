@@ -1,4 +1,10 @@
 {
-  "presets": ["react", "es2015", "stage-3"],
-  "plugins": ["transform-async-to-generator"]
+  "presets": [
+    "react",
+    "es2015"
+  ],
+  "plugins": [
+    "transform-async-to-generator",
+    "transform-object-rest-spread"
+  ]
 }
