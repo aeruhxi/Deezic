@@ -6,6 +6,7 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   context: path.resolve(__dirname, 'app', 'renderer'),
   entry: [
+    'react-hot-loader/patch',
     'webpack-dev-server/client?http://127.0.0.1:9555',
     'webpack/hot/only-dev-server',
     './index.js'
@@ -17,6 +18,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'app', 'renderer', 'index.html')
     })
